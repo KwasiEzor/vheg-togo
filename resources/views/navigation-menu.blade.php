@@ -13,7 +13,7 @@
 
                 <!-- Navigation Links -->
 
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                <div class="items-center hidden space-x-8 sm:-my-px sm:ms-10 sm:flex md:flex">
                     <x-nav-link navigate href="{{ route('home') }}" :active="request()->routeIs('home')">
                         {{ __('Home') }}
                     </x-nav-link>
@@ -41,14 +41,37 @@
                     @else
                     <x-nav-link navigate href="{{ route('login') }}" :active="request()->routeIs('login')">
                         {{ __('Login') }}
+                        {{-- <i class="mb-1 fa-solid fa-right-to-bracket"></i> --}}
                     </x-nav-link>
                     <x-nav-link navigate href="{{ route('register') }}" :active="request()->routeIs('register')">
                         {{ __('Register') }}
+                        {{-- <i class="mb-1 fa-solid fa-user-plus"></i> --}}
                     </x-nav-link>
                     @endauth
                     <x-nav-link navigate href="{{ route('search') }}">
-                        <i class="fa fa-search"></i>
+                        <i class=" fa fa-search"></i>
                     </x-nav-link>
+                    <x-dropdown align="right">
+                        <x-slot name="trigger">
+                            <span class="inline-flex">
+
+                                <button type="button" class="text-sm">More</button>
+                            </span>
+                        </x-slot>
+                        <x-slot name="content">
+                            <div class="z-10 w-full max-w-full">
+                                <x-dropdown-link href="{{ route('funds.index') }}">
+                                    Funds Raising
+                                </x-dropdown-link>
+                                <x-dropdown-link href="{{ route('galleries.index') }}">
+                                    Galleries
+                                </x-dropdown-link>
+                                <x-dropdown-link href="/">
+                                    Partners
+                                </x-dropdown-link>
+                            </div>
+                        </x-slot>
+                    </x-dropdown>
                 </div>
             </div>
 
@@ -124,7 +147,7 @@
                             <span class="inline-flex rounded-md">
                                 <button type="button"
                                     class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out bg-white border border-transparent rounded-md hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50">
-                                    {{ Auth::user()->name }}
+                                    {{ Auth::user()->first_name }}
 
                                     <svg class="ms-2 -me-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none"
                                         viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -232,12 +255,12 @@
                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                 <div class="shrink-0 me-3">
                     <img class="object-cover w-10 h-10 rounded-full" src="{{ Auth::user()->profile_photo_url }}"
-                        alt="{{ Auth::user()->name }}" />
+                        alt="{{ Auth::user()->first_name }}" />
                 </div>
                 @endif
 
                 <div>
-                    <div class="text-base font-medium text-gray-800">{{ Auth::user()->name }}</div>
+                    <div class="text-base font-medium text-gray-800">{{ Auth::user()->first_name }}</div>
                     <div class="text-sm font-medium text-gray-500">{{ Auth::user()->email }}</div>
                 </div>
             </div>

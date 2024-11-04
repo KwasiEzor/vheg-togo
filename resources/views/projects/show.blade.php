@@ -11,7 +11,10 @@
 
         </x-page-banner>
         @endif
-        <div class="min-h-screen">
+        <div class="min-h-screen w-full relative">
+
+            <x-back-button route="{{ route('projects.index') }}" class="absolute right-[5%] z-10" />
+
             <div class="flex flex-col items-center justify-center max-w-md mx-auto my-10 space-y-1">
 
                 <h1 class="text-3xl font-bold text-gray-700 font-poppins">Project Details</h1>

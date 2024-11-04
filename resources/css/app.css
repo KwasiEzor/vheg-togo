@@ -5,3 +5,9 @@
 [x-cloak] {
     display: none;
 }
+
+@layer base {
+    .glass-card {
+        @apply w-full h-full bg-gray-400 border border-gray-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10;
+    }
+}

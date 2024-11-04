@@ -55,7 +55,9 @@
     @stack('modals')
 
     @livewireScripts
-    @laravelCommentsLivewireScripts
+    {{-- @laravelCommentsLivewireScripts --}}
+    <x-livewire-alert::scripts />
+    <x-livewire-alert::flash />
 </body>
 
 </html>

@@ -16,7 +16,7 @@
                     <figure class="relative object-cover overflow-hidden">
                         <img src="{{ $post->cover_img }}" alt="{{ $post->title }}" class="rounded-xl">
                     </figure>
-                    <div class="mt-4 px-4 ">
+                    <div class="px-4 mt-4 ">
                         <div class="block mb-3">
                             Categories :
                         </div>
@@ -53,9 +53,22 @@
                         </p>
                     </div>
                 </article>
+                <div class="flex flex-col justify-between w-full px-4 py-8">
+                    <h3 class="text-gray-500 underline underline-offset-4">Comments:</h3>
+                    @guest()
 
-                <livewire:comments :model="$post">
+                    <livewire:comments :model="$post" read-only />
+                    @else
+                    <livewire:comments :model="$post" />
+                    @endguest
+                    @guest()
 
+                    <p class="flex items-center justify-end w-full text-sm">Want to add a comment?<a
+                            href="{{ route('login') }}"
+                            class="self-end ml-1 font-semibold text-green-600 transition-all duration-150 hover:underline hover:underline-offset-4 hover:scale-105">Login</a>
+                    </p>
+                    @endguest
+                </div>
             </section>
         </main>
     </x-container>

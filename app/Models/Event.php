@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\Gallery;
 use App\Models\Organizer;
 use App\Models\Participant;
 use Illuminate\Support\Str;
 use App\Enums\EventStatusEnum;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
@@ -72,5 +74,10 @@ class Event extends Model
         $query->whereHas('organizers', function (Builder $query) use ($organizerSlug) {
             $query->where('slug', $organizerSlug);
         });
+    }
+
+    public function galleries(): MorphMany
+    {
+        return $this->morphMany(Gallery::class, 'galleryable');
     }
 }

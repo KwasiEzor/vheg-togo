@@ -14,10 +14,12 @@
                         also to fight against hunger and poverty
                     </h3>
                     <div class="mt-6">
-                        <x-button
-                            class="px-6 py-3 text-xl font-semibold text-white uppercase bg-green-600 rounded-lg md:text-2xl drop-shadow ">
-                            Get Started Now
-                            <i class="fa-solid fa-arrow-right"></i>
+                        <x-button color="green" size="lg">
+                            <span>
+
+                                Get Started Now
+                            </span>
+                            <i class="fa-solid fa-arrow-right ml-1"></i>
                         </x-button>
                     </div>
                 </div>
@@ -76,10 +78,9 @@
                                 voluptate in, perferendis nisi dignissimos praesentium neque perspiciatis error et
                                 quidem quisquam voluptatum maxime!
                             </p>
-                            <button
-                                class="text-xl capitalize bg-green-600 btn max-w-fit btn-wide text-zinc-50 hover:bg-gray-700 md:text-2xl hover:scale-90">
+                            <x-button size="md" color="green">
                                 discover now
-                            </button>
+                            </x-button>
                         </div>
                     </aside>
                 </div>
@@ -260,10 +261,9 @@
                         </x-article-card>
                     </div>
                     <div class="max-w-sm p-4 mx-auto">
-                        <button
-                            class="capitalize bg-green-600 text-md btn max-w-fit btn-wide text-zinc-50 hover:bg-gray-700 md:text-xl hover:scale-90">
+                        <x-button size="md" color="green">
                             learn more
-                        </button>
+                        </x-button>
                     </div>
                 </div>
             </section>
@@ -302,10 +302,9 @@
                                 cupiditate numquam, excepturi praesentium vel similique!
                                 Aperiam!
                             </p>
-                            <button
-                                class="ml-4 capitalize bg-green-600 text-md md:self-start btn max-w-fit btn-wide text-zinc-50 hover:bg-gray-700 md:text-xl hover:scale-90">
+                            <x-button size="md" color="green">
                                 Discover now
-                            </button>
+                            </x-button>
                         </div>
                     </div>
                     <div class="flex flex-col w-full p-4 space-y-4 md:p-6 md:space-y-6">
@@ -361,11 +360,12 @@
                             </h1>
                         </aside>
                         <aside>
-                            <a wire:navigate href="{{ route('about') }}"
-                                class="px-6 py-3 ml-4 text-lg font-semibold text-white capitalize bg-green-600 rounded-lg md:self-start md:text-xl drop-shadow max-w-fit">
-                                Discover More
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
+                            <x-button type="link" wire:navigate href="{{ route('about') }}" size="md" color="green">
+                                <span>
+                                    Discover More
+                                </span>
+                                <i class="fa-solid fa-arrow-right ml-1"></i>
+                            </x-button>
                         </aside>
                     </div>
                     <div class="grid grid-cols-1 gap-4 py-10 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2">

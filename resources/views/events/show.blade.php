@@ -10,7 +10,10 @@
             </div>
         </x-page-banner>
         @endif
-        <div class="min-h-screen">
+        <div class="relative w-full h-full min-h-screen ">
+            <x-back-button route="{{ route('events.index') }}" class="absolute right-[5%] z-10">
+
+            </x-back-button>
             <div class="flex flex-col items-center justify-center max-w-md mx-auto my-10 space-y-1">
 
                 <h1 class="text-3xl font-bold text-gray-700 font-poppins">Event Details</h1>
@@ -19,8 +22,11 @@
                     know
                     about this
                     event</p>
+
             </div>
-            <section class="w-full max-w-screen-lg p-4 py-10 mx-auto border-2 border-gray-100 shadow rounded-xl">
+            <section
+                class="relative w-full max-w-screen-lg p-4 py-10 mx-auto border-2 border-gray-100 shadow rounded-xl">
+
                 <figure class="w-full h-full mx-auto overflow-hidden max-w-fit">
                     <img src="{{ $event->cover_img }}" alt="{{ $event->title }}" class=" rounded-t-xl">
                 </figure>

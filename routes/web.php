@@ -3,15 +3,22 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\FundController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProjectController;
+use App\Livewire\ContactComponent;
 use App\Livewire\SearchComponent;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)->name('home');
 Route::get('/about', AboutController::class)->name('about');
 Route::get('/contact', ContactController::class)->name('contact');
+Route::get('/galleries', [GalleryController::class, 'index'])->name('galleries.index');
+Route::get('/galleries/{gallery:slug}', [GalleryController::class, 'show'])->name('galleries.show');
+Route::get('/funds', [FundController::class, 'index'])->name('funds.index');
+Route::get('/funds/{fund:slug}', [FundController::class, 'show'])->name('funds.show');
 
 Route::get('/search', SearchComponent::class)->name('search');
 

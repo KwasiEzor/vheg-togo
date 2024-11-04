@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Fund;
 use App\Models\User;
 use App\Models\Event;
 use App\Models\Project;
@@ -44,5 +45,10 @@ class Participant extends Model
     {
         return $this->belongsToMany(Event::class)
             ->withPivot('joined_at');
+    }
+
+    public function funds(): BelongsToMany
+    {
+        return $this->belongsToMany(Fund::class, 'fund_participant');
     }
 }

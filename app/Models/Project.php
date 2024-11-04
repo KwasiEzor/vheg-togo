@@ -11,6 +11,7 @@ use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Project extends Model
 {
@@ -72,5 +73,10 @@ class Project extends Model
         $query->whereHas('categories', function (Builder $query) use ($categorySlug) {
             $query->where('slug', $categorySlug);
         });
+    }
+
+    public function galleries(): MorphMany
+    {
+        return $this->morphMany(Gallery::class, 'galleryable');
     }
 }
