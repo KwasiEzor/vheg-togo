@@ -59,6 +59,7 @@ class DatabaseSeeder extends Seeder
             ParticipantSeeder::class,
             ProjectSeeder::class,
             EventOrganizerSeeder::class,
+            CategoryProjectSeeder::class,
             ParticipantProjectSeeder::class,
             EventParticipantSeeder::class,
 

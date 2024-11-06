@@ -61,11 +61,21 @@ class Fund extends Model
 
     public function getFormattedAmount(): string
     {
-        return Number::currency($this->amount, $this->currency);
+        return  Number::currency(strval($this->amount), $this->currency);
     }
 
-    public function particpants(): BelongsToMany
+    public function participants(): BelongsToMany
     {
         return $this->belongsToMany(Participant::class, 'fund_participant');
+    }
+
+    public function calculateFundRate(int $estimation): int
+    {
+        return ($this->amount * $estimation) / 1000000;
+    }
+
+    public function getExcerpt()
+    {
+        return Str::limit(strip_tags($this->description), 100);
     }
 }

@@ -14,7 +14,7 @@ class FundListing extends Component
     #[Computed()]
     public function funds()
     {
-        return Fund::with(['category', 'project', 'participants'])->latest()->paginate();
+        return Fund::with(['category', 'project', 'participants'])->latest()->paginate(9);
     }
 
     public function render()
